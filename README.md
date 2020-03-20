@@ -183,6 +183,7 @@
     ```
 
 5.  oracle-graph-20.1.0.x86_64.rpm
+	```
 	as azimshaik ~
 	$ rpm i oracle-graph-20.1.0.x86_64.rpm
 	$ cd /opt/oracle/graph/
@@ -222,7 +223,7 @@
 	SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
 	Mar 19, 2020 5:57:54 PM org.apache.coyote.AbstractProtocol start
 	INFO: Starting ProtocolHandler ["http-nio-7007"]
-
+	```
 
 6.  oracle-graph-client-20.1.0.zip
 		as azimshaik at ~
