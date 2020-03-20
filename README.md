@@ -226,6 +226,7 @@
 	```
 
 6.  oracle-graph-client-20.1.0.zip
+	```
 		as azimshaik at ~
 		$ unzip oracle-graph-client-20.1.0.zip
 		$ cd oracle-graph-client-20.1.0/bin
@@ -284,7 +285,7 @@
 		+---------------+
 		| 10150.0       |
 		+---------------+
-
+    ```
 
 Users:
 1. azimshaik
