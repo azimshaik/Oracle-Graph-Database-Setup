@@ -4,9 +4,9 @@
 ------
 1.  [Oracle Graph Server](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
 2.  [Oracle Graph Client](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
-3.  [jdk-8u241-linux-x64.rpm](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
-4.  [jdk-11.0.6_linux-x64_bin.tar.gz](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-5.  [oracle-database-ee-19c-1.0-1.x86_64.rpm](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)
+3.  [JDK8 (jdk-8u241-linux-x64.rpm)](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+4.  [JDK11 (jdk-11.0.6_linux-x64_bin.tar.gz)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+5.  [Oracle Database 19c (oracle-database-ee-19c-1.0-1.x86_64.rpm)](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)
 
 Download the above on to your local machine
 
