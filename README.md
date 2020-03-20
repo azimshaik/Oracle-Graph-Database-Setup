@@ -14,12 +14,14 @@ Download the above on to your local machine
 
 ##### Step 1
 
-1.1. scp above downloaded into vm
+1. 
+	a. scp above downloaded into vm
 	... 
 	```
 		scp -i /path/to/key  /path/to/<file-name> vmusername@publicip:~
 	eg: scp -i /Users/azim/.ssh/azurevmprivatekey  jdk-8u241-linux-x64.rpm azimshaik@12.123.23.234:~
-	```	
+	```
+	b. 	
 
 1.  [Oracle Graph Server & Oracle Graph Client](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
 2.  [jdk-8u241-linux-x64.rpm](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
