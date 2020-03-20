@@ -6,8 +6,9 @@
 2.  jdk-8u241-linux-x64.rpm
 3.  jdk-11.0.6_linux-x64_bin.tar.gz.gz
 	...as azimshaik create and save at jdk11/
-	...$ gunzip jdk-11.0.6_linux-x64_bin.tar.gz.gz
-	...$ tar xvf jdk-11.0.6_linux-x64_bin.tar
+	```$ gunzip jdk-11.0.6_linux-x64_bin.tar.gz.gz
+	   $ tar xvf jdk-11.0.6_linux-x64_bin.tar
+	```
 4.  oracle database 19c.
 	yum install -y oracle-database-preinstall-19c
 	yum -y localinstall oracle-database-ee-19c-1.0-1.x86_64.rpm
