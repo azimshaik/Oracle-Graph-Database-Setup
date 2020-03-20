@@ -13,8 +13,6 @@ Download the above on to your local machine
 #### Oracle Linux(7.6) VM Setup on Microsoft Azure
 
 ##### Step 1
-
-1. 
 	a. scp above downloaded into vm
 	... 
 	```
