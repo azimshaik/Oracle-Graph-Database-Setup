@@ -23,7 +23,7 @@ once the VM started
 	    scp -i /path/to/key  /path/to/<file-name> vmusername@publicip:~
 	eg: scp -i /Users/azim/.ssh/azurevmprivatekey  jdk-8u241-linux-x64.rpm azimshaik@12.123.23.234:~
 	
-##### Step 2: 	Installing Oracle 19C database
+#### Step 2: 	Installing Oracle 19C database
 ssh into vm 
 ```
 	yum install -y oracle-database-preinstall-19c
@@ -193,12 +193,13 @@ ssh into vm
 	------------------------------------ ----------- ------------------------------
 	max_string_size 		     string	 EXTENDED
 	SQL> alter session set container=ORCLPDB1;
-    ```
+```
 
+#### Step 2: Installing JDK8
+```
+rpm -i jdk-8u241-linux-x64.rpm
+```
 
-
-1.  [Oracle Graph Server & Oracle Graph Client](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
-2.  [jdk-8u241-linux-x64.rpm](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
 3.  [jdk-11.0.6_linux-x64_bin.tar.gz.gz](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 
 	... as azimshaik create and save at jdk11/
