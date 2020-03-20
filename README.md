@@ -2,7 +2,25 @@
 
 #### Things to download:
 ------
-1.  [jdk-11.0.6_linux-x64_bin.rpm](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+1.  [Oracle Graph Server](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
+2.  [Oracle Graph Client](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
+3.  [jdk-8u241-linux-x64.rpm](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+4.  [jdk-11.0.6_linux-x64_bin.tar.gz](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+5.  [oracle-database-ee-19c-1.0-1.x86_64.rpm](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)
+
+Download the above on to your local machine
+
+#### Oracle Linux(7.6) VM Setup on Microsoft Azure
+
+#####Step 1
+
+1.1. scp above downloaded into vm
+	```
+		scp -i /path/to/key  /path/to/<file-name> vmusername@publicip:~
+	eg: scp -i /Users/azim/.ssh/azurevmprivatekey  jdk-8u241-linux-x64.rpm azimshaik@12.123.23.234:~
+	```	
+
+1.  [Oracle Graph Server & Oracle Graph Client](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
 2.  [jdk-8u241-linux-x64.rpm](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
 3.  [jdk-11.0.6_linux-x64_bin.tar.gz.gz](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 
