@@ -12,9 +12,9 @@
 	   $ tar xvf jdk-11.0.6_linux-x64_bin.tar
 	```
 4.  oracle database 19c.
+	```
 	yum install -y oracle-database-preinstall-19c
 	yum -y localinstall oracle-database-ee-19c-1.0-1.x86_64.rpm
-	as root
 	[root@oraclevm azimshaik]# /etc/init.d/oracledb_ORCLCDB-19c configure
 	Configuring Oracle Database ORCLCDB
 	.
@@ -28,7 +28,7 @@
 	New password:
 	Retype new password:
 	passwd: all authentication tokens updated successfully
-
+	```
 	as azimshaik 
 	$ cd /opt/oracle/product/19c/dbhome_1/bin/
 	$ ./sqlplus as sysdba
