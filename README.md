@@ -1,10 +1,13 @@
 ### Steps to setup Oracle Graph Database on Oracle Linux 7.6 on Azure
 
-#### Things we need do download:
+#### Things to download:
 ------
 1.  jdk-11.0.6_linux-x64_bin.rpm
+	... https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 2.  jdk-8u241-linux-x64.rpm
+	... https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
 3.  jdk-11.0.6_linux-x64_bin.tar.gz.gz
+	... https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 
 	... as azimshaik create and save at jdk11/
 	```
