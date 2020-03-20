@@ -15,6 +15,7 @@ Download the above on to your local machine
 #####Step 1
 
 1.1. scp above downloaded into vm
+	...
 	```
 		scp -i /path/to/key  /path/to/<file-name> vmusername@publicip:~
 	eg: scp -i /Users/azim/.ssh/azurevmprivatekey  jdk-8u241-linux-x64.rpm azimshaik@12.123.23.234:~
