@@ -9,16 +9,193 @@
 5.  [Oracle Database 19c (oracle-database-ee-19c-1.0-1.x86_64.rpm)](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)
 
 Download the above on to your local machine
+ JDK8 is prerequisite for Oracle Graph Server
+ JDK11 is prerequisite for Oracle Client
+We will download (.rpm)redhat package manager file for JDK8 and (.taz.gz) for JDK11. This is to avoid overriding the versions.
 
-#### Oracle Linux(7.6) VM Setup on Microsoft Azure
-
-##### Step 1
-a. scp above downloaded into vm
+#### Step 1 :Oracle Linux(7.6) VM Setup on Microsoft Azure
+.
+.
+.
+once the VM started
+... scp above downloaded into vm
 	
 	    scp -i /path/to/key  /path/to/<file-name> vmusername@publicip:~
 	eg: scp -i /Users/azim/.ssh/azurevmprivatekey  jdk-8u241-linux-x64.rpm azimshaik@12.123.23.234:~
 	
-b. 	
+##### Step 2: 	Installing Oracle 19C database
+ssh into vm 
+```
+	yum install -y oracle-database-preinstall-19c
+	yum -y localinstall oracle-database-ee-19c-1.0-1.x86_64.rpm
+	[root@oraclevm azimshaik]# /etc/init.d/oracledb_ORCLCDB-19c configure
+	Configuring Oracle Database ORCLCDB
+	.
+	.
+	.
+	Global Database Name: ORCLCDB
+	System Identifier(SID): ORCLCDB
+	Database configuration completed successfully. The passwords were auto generated, you muct change them by connecting to the database using 'sqlplus / as sysdba' as the oracle user
+	[root@oraclevm azimshaik]# passwd oracle
+	Changing password for user oracle
+	New password:
+	Retype new password:
+	passwd: all authentication tokens updated successfully
+	```
+	as azimshaik 
+	```
+	$ cd /opt/oracle/product/19c/dbhome_1/bin/
+	$ ./sqlplus as sysdba
+	$ su oracle
+	as oracle user
+	$ source oraenv.sh
+	$ cd /opt/oracle/product/19c/dbhome_1/bin/
+	$ ./sqlplus / as sysdba
+	SQL> startup
+	It will show
+		Database mounted.
+		Database opened.
+	SQL> show con_name;
+	CON_NAME
+	------------------------------
+	CDB$ROOT
+	SQL> show pdbs;
+	    CON_ID CON_NAME			  OPEN MODE  RESTRICTED
+		---------- ------------------------------ ---------- ----------
+	 	2 PDB$SEED			  READ ONLY  NO
+	 	3 ORCLPDB1			  MOUNTED
+	SQL> alter session set container=ORCLPDB1;
+	SQL> create user azimshaik identified by azimshaik;
+	SQL> grant create session, create sequence, create procedure, create table, create public synonym to azimshaik;
+	SQL> connect azimshaik/azimshaik@orclpdb1;
+	ERROR:
+	SQL> connect / as sysdba
+	SQL> show pdbs;
+
+    CON_ID CON_NAME			  OPEN MODE  RESTRICTED
+	---------- ------------------------------ ---------- ----------
+	 2 PDB$SEED			  READ ONLY  NO
+	 3 ORCLPDB1			  READ WRITE NO
+	quit and login as oracle user
+	$ ./sqlplus / as sysdba
+	SQL> alter session set container=ORCLPDB1;
+	SQL> alter session set container=ORCLPDB1;
+	SQL> grant unlimited tablespace to azimshaik;
+	SQL> connect azimshaik/azimshaik@ORCLPDB1;
+	SQL> create table test(myid number);
+	SQL> insert into test values(1);
+	SQL> insert into test values(2);
+	SQL> select * from test;
+
+      MYID
+	----------
+			 1
+	 		 2
+	SQL> create index myidx on test(myid);
+	SQL> connect / as sysdba
+	SQL> alter session set container=ORCLPDB1;
+	SQL> create tablespace hrtbs datafile 'hrtbs.dat' size 1M autoextend on next 100K segment space management auto;
+	Tablespace created.
+	SQL> create user hr identified by hr default tablespace hrtbs;
+	SQL> grant create session, create sequence, create procedure, create table, unlimited tablespace, create public synonym to hr;
+	SQL> connect hr/hr@ORCLPDB1;
+	SQL> @/home/oracle/load_sample.sql
+	.
+	.
+	.
+	SQL> show user;
+	USER is "HR"
+	SQL> exit
+	logout from vm 
+	ssh in to vm
+	$ su oracle
+	$ source oraenv.sh
+	$ echo $ORACLE_HOME
+	$ sqlplus / as sysdba
+	SQL> exit
+	$ lsnrctl status
+	$ lsnrctl start
+	$ lsnrctl status
+	$ sqlplus / as sysdba
+	SQL> startup
+	ORACLE instance started.
+	SQL> show pdbs;
+
+    	CON_ID CON_NAME			  OPEN MODE  RESTRICTED
+	---------- ------------------------------ ---------- ----------
+	 2 PDB$SEED			  READ ONLY  NO
+	 3 ORCLPDB1			  MOUNTED
+	SQL> alter session set container=ORCLPDB1;
+	SQL> connect / as sysdba
+	SQL> alter pluggable database ORCLPDB1 open read write;
+	SQL> alter session set container=ORCLPDB1;
+	SQL> grant create view to hr;
+	SQL> connect hr@ORCLPDB1/hr
+	SQL> create view works_as as select * from employees;
+	SQL> create view works_at as select * from employees;
+	SQL> create view managed_by as select * from departments;
+	SQL> select tname from tab;
+	TNAME
+	--------------------------------------------------------
+	READEGIONS
+	COUNTRIES
+	LOCATIONS
+	DEPARTMENTS
+	JOBS
+	EMPLOYEES
+	JOB_HISTORY
+	SQL> show parameters max_string;
+					NAME				     TYPE	 VALUE
+	------------------------------------ ----------- ------------------------------
+				max_string_size 		     string	 STANDARD
+	SQL> ALTER SESSION SET CONTAINER=CDB$ROOT;
+	SQL> ALTER SYSTEM SET max_string_size=extended SCOPE=SPFILE;
+	SQL> shutdown immediate;
+	SQL> startup upgrade;
+	SQL> ALTER PLUGGABLE DATABASE ALL OPEN UPGRADE;
+	SQL> quit
+	$ cd $ORACLE_HOME/rdbms/admin
+	$ mkdir /home/oracle/utl32k_cdb_pdbs_output
+	$ $ORACLE_HOME/perl/bin/perl $ORACLE_HOME/rdbms/admin/catcon.pl -u SYS -d $ORACLE_HOME/rdbms/admin -l '/home/oracle/utl32k_cdb_pdbs_output' -b utl32k_cdb_pdbs_output utl32k.sql
+	.
+	.
+	.
+	Enter Password: //Enter Oracle US OS password
+	catcon.pl: completed successfully
+	$ sqlplus / as sysdba
+	SQL> shutdown immediate;
+	Database closed.
+	Database dismounted.
+	ORACLE instance shut down.
+	SQL> startup           
+	ORACLE instance started.
+
+	Total System Global Area 1325396400 bytes
+	Fixed Size		    9134512 bytes
+	Variable Size		  872415232 bytes
+	Database Buffers	  436207616 bytes
+	Redo Buffers		    7639040 bytes
+	Database mounted.
+	Database opened.
+	SQL> ALTER PLUGGABLE DATABASE ALL OPEN READ WRITE;
+
+	$ mkdir /home/oracle/utlrp_cdb_pdbs_output
+	$ $ORACLE_HOME/perl/bin/perl $ORACLE_HOME/rdbms/admin/catcon.pl -u SYS -d $ORACLE_HOME/rdbms/admin -l '/home/oracle/utlrp_cdb_pdbs_output' -b utlrp_cdb_pdbs_output utlrp.sql
+	.
+	.
+	Enter Password: 
+	catcon.pl: completed successfully
+	$ sqlplus / as sysdba
+	SQL> alter session set container=ORCLPDB1;
+	SQL> show parameters max_string;
+
+	NAME				     TYPE	 VALUE
+	------------------------------------ ----------- ------------------------------
+	max_string_size 		     string	 EXTENDED
+	SQL> alter session set container=ORCLPDB1;
+    ```
+
+
 
 1.  [Oracle Graph Server & Oracle Graph Client](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html)
 2.  [jdk-8u241-linux-x64.rpm](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
