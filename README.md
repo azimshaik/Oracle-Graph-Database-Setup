@@ -198,8 +198,8 @@ ssh into vm
 #### Step 3: Installing JDK8
 ```
 rpm -i jdk-8u241-linux-x64.rpm
-```
 
+```
 #### Step 4: Installing Graph Server
 ```
 	as azimshaik ~
@@ -243,13 +243,12 @@ rpm -i jdk-8u241-linux-x64.rpm
 	INFO: Starting ProtocolHandler ["http-nio-7007"]
 ```
 
-#### Step 4: Installing JDK11 
-
-  ... as azimshaik create and save at jdk11/
-	```
+#### Step 5: Installing JDK11 
+... as azimshaik create and save at jdk11/
+```
 	   $ gunzip jdk-11.0.6_linux-x64_bin.tar.gz.gz
 	   $ tar xvf jdk-11.0.6_linux-x64_bin.tar
-	```
+```
 
 
 5.  oracle-graph-20.1.0.x86_64.rpm
