@@ -5,7 +5,8 @@
 1.  jdk-11.0.6_linux-x64_bin.rpm
 2.  jdk-8u241-linux-x64.rpm
 3.  jdk-11.0.6_linux-x64_bin.tar.gz.gz
-	...as azimshaik create and save at jdk11/
+
+	... as azimshaik create and save at jdk11/
 	```
 	   $ gunzip jdk-11.0.6_linux-x64_bin.tar.gz.gz
 	   $ tar xvf jdk-11.0.6_linux-x64_bin.tar
