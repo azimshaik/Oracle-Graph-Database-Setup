@@ -248,14 +248,10 @@ rpm -i jdk-8u241-linux-x64.rpm
 ```
 	   $ gunzip jdk-11.0.6_linux-x64_bin.tar.gz.gz
 	   $ tar xvf jdk-11.0.6_linux-x64_bin.tar
+```	
+
+#### Step 6: Installing Graph Client
 ```
-
-
-5.  oracle-graph-20.1.0.x86_64.rpm
-	
-
-6.  oracle-graph-client-20.1.0.zip
-	```
 		as azimshaik at ~
 		$ unzip oracle-graph-client-20.1.0.zip
 		$ cd oracle-graph-client-20.1.0/bin
@@ -314,7 +310,7 @@ rpm -i jdk-8u241-linux-x64.rpm
 		+---------------+
 		| 10150.0       |
 		+---------------+
-    ```
+ ```
 
 Users:
 1. azimshaik
