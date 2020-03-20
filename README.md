@@ -11,7 +11,7 @@
 	   $ gunzip jdk-11.0.6_linux-x64_bin.tar.gz.gz
 	   $ tar xvf jdk-11.0.6_linux-x64_bin.tar
 	```
-4.  oracle database 19c.
+4.  oracle-database-ee-19c-1.0-1.x86_64.rpm
 	```
 	yum install -y oracle-database-preinstall-19c
 	yum -y localinstall oracle-database-ee-19c-1.0-1.x86_64.rpm
@@ -30,6 +30,7 @@
 	passwd: all authentication tokens updated successfully
 	```
 	as azimshaik 
+	```
 	$ cd /opt/oracle/product/19c/dbhome_1/bin/
 	$ ./sqlplus as sysdba
 	$ su oracle
@@ -179,7 +180,7 @@
 	------------------------------------ ----------- ------------------------------
 	max_string_size 		     string	 EXTENDED
 	SQL> alter session set container=ORCLPDB1;
-
+    ```
 
 5.  oracle-graph-20.1.0.x86_64.rpm
 	as azimshaik ~
